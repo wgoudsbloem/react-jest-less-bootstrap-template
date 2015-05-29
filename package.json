@@ -1,0 +1,24 @@
+{
+  "name": "truckrep-web",
+  "version": "1.0.0",
+  "description": "Light web application for truckrepair.com",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Willem Goudsbloem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "browserify": "^10.2.3",
+    "gulp": "^3.8.11",
+    "gulp-bower": "0.0.10",
+    "gulp-develop-server": "^0.4.3",
+    "gulp-livereload": "^3.8.0",
+    "mocha": "^2.2.5",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
