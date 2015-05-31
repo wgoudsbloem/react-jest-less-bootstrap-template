@@ -44,16 +44,22 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('./public/lib/'));
 });
 
-gulp.task('live-reload', function() {
+var less = require('gulp-less');
+var path = require('path');
 
+gulp.task('less', function () {
+  return gulp.src('./src/less/**/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('./public/css'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  //livereload.middleware();
   livereload.listen();
   server.listen({
     path: './app.js'
   });
-  gulp.watch('./src/**/*.*', ['browserify', 'html-dev', 'server:restart', 'live-reload']);
+  gulp.watch('./src/**/*.*', ['browserify', 'html-dev', 'less', 'server:restart']);
 });
