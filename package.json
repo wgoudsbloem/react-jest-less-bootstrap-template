@@ -15,10 +15,11 @@
     "bower": "^1.4.1",
     "browserify": "^10.2.3",
     "gulp": "^3.8.11",
-    "gulp-bower": "0.0.10",
     "gulp-develop-server": "^0.4.3",
     "gulp-less": "^3.0.3",
     "gulp-livereload": "^3.8.0",
+    "gulp-react": "^3.0.1",
+    "gulp-rimraf": "^0.1.1",
     "mocha": "^2.2.5",
     "vinyl-source-stream": "^1.1.0"
   }
