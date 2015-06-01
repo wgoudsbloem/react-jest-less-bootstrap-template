@@ -28,12 +28,14 @@ gulp.task('server:restart', function() {
   gulp.watch(['./app.js'], server.restart);
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
-  // gulp.src('src/**/*.js')
-  // .pipe(browserify())
-  // .pipe(gulp.dest('build'));
-});
+gulp.task('default', ['browserify', 'html-dev', 'less', 'aurelia']);
+
+gulp.task('aurelia', function(){
+  gulp.src('./jspm_packages/**/*.*')
+    .pipe(gulp.dest('public/lib/jspm_packages/'));
+    gulp.src('./config.js')
+      .pipe(gulp.dest('public/lib/'));
+})
 
 gulp.task('browserify', function() {
   return browserify('./src/js/index.js')
