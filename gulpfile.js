@@ -3,6 +3,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var server = require('gulp-develop-server');
 var livereload = require('gulp-livereload');
+var reactify = require('reactify');
 
 
 gulp.task('html-dev', function() {
@@ -36,10 +37,12 @@ gulp.task('server:restart', function() {
   gulp.watch(['./app.js'], server.restart);
 });
 
-gulp.task('default', ['clean', 'browserify', 'html-dev', 'less', 'react']);
-
 gulp.task('browserify', function() {
-  return browserify('./src/js/index.js')
+  return browserify({
+    entries: './src/js/index.js',
+    transform: [reactify],
+    debug: true
+  })
     .bundle()
     .pipe(source('index.js'))
     .pipe(gulp.dest('./public/lib/'));
@@ -64,3 +67,5 @@ gulp.task('watch', function() {
   });
   gulp.watch('./src/**/*.*', ['browserify', 'html-dev', 'less', 'react', 'server:restart']);
 });
+
+gulp.task('default', ['clean', 'browserify', 'html-dev', 'less', 'react']);

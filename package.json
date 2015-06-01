@@ -21,6 +21,7 @@
     "gulp-react": "^3.0.1",
     "gulp-rimraf": "^0.1.1",
     "mocha": "^2.2.5",
+    "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
   }
 }
