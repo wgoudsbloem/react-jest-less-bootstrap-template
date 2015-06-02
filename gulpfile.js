@@ -37,15 +37,24 @@ gulp.task('server:restart', function() {
   gulp.watch(['./app.js'], server.restart);
 });
 
-gulp.task('browserify', function() {
-  return browserify({
-    entries: './src/js/index.js',
-    transform: [reactify],
-    debug: true
-  })
-    .bundle()
+// gulp.task('browserify', function() {
+//   return browserify({
+//     entries: './src/jsx/index.jsx',
+//     transform: [reactify],
+//     debug: true
+//   })
+//     .bundle()
+//     .pipe(source('index.js'))
+//     .pipe(gulp.dest('./public/lib/jsx/'));
+// });
+
+gulp.task('browserify', function(){
+  var b = browserify();
+  b.transform(reactify); // use the reactify transform
+  b.add('./src/jsx/index.jsx');
+  return b.bundle()
     .pipe(source('index.js'))
-    .pipe(gulp.dest('./public/lib/'));
+    .pipe(gulp.dest('./public/lib/jsx/'));
 });
 
 var less = require('gulp-less');
@@ -65,7 +74,7 @@ gulp.task('watch', function() {
   server.listen({
     path: './app.js'
   });
-  gulp.watch('./src/**/*.*', ['browserify', 'html-dev', 'less', 'react', 'server:restart']);
+  gulp.watch('./src/**/*.*', ['browserify', 'html-dev', 'less', 'server:restart']);
 });
 
 gulp.task('default', ['clean', 'browserify', 'html-dev', 'less', 'react']);
