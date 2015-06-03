@@ -4,7 +4,6 @@ var gulp = require('./gulp/dev/task')(
 );
 
 var server = require('gulp-develop-server');
-var livereload = require('gulp-livereload');
 
 // run server
 gulp.task('server:start', function() {
@@ -20,11 +19,7 @@ gulp.task('server:restart', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  livereload.listen();
-  server.listen({
-    path: './app.js'
-  });
-  gulp.watch('./src/**/*.*', ['browserify', 'html', 'less', 'server:restart']);
+  gulp.watch('./src/**/*.*', ['browserify', 'html', 'less']);
 });
 
-gulp.task('default', ['clean', 'html', 'browserify', 'less', 'watch']);
+gulp.task('default', ['clean', 'html', 'browserify', 'less', 'watch', 'server:start']);
