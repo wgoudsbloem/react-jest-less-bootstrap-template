@@ -5,13 +5,6 @@ var gulp = require('./gulp/dev/task')(
 
 var server = require('gulp-develop-server');
 
-// run server
-gulp.task('server:start', function() {
-  server.listen({
-    path: './app.js'
-  });
-});
-
 // restart server if app.js changed
 gulp.task('server:restart', function() {
   gulp.watch(['./app.js'], server.restart);
@@ -22,4 +15,9 @@ gulp.task('watch', function() {
   gulp.watch('./src/**/*.*', ['browserify', 'html', 'less']);
 });
 
-gulp.task('default', ['clean', 'html', 'browserify', 'less', 'watch', 'server:start']);
+gulp.task('default', ['clean', 'html', 'browserify', 'less', 'watch'], function(){
+  // start server when all task are completed
+  server.listen({
+    path: './app.js'
+  });
+});
