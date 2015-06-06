@@ -1,6 +1,5 @@
 var React = require('react');
 var dao = require('../js/dao');
-var Q = require('q-xhr')(window.XMLHttpRequest, require('q'));
 
 var HelloWorld =  React.createClass({
   render: function () {
@@ -18,7 +17,7 @@ var HelloWorld =  React.createClass({
     return {msg: 'empty'};
   },
   componentDidMount: function(){
-    Q.xhr.get('http://echo.jsontest.com/text/this_is_an_AJAX_result')
+    dao.promise
     .then(function(res){
       this.setState({msg: res.data.text});
       // don't forget to bind!!!
