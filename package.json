@@ -1,7 +1,7 @@
 {
-  "name": "truckrep-web",
+  "name": "template",
   "version": "1.0.0",
-  "description": "Light web application for truckrepair.com",
+  "description": "Template for a modern web app",
   "main": "app.js",
   "scripts": {
     "test": "jest"
