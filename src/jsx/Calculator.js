@@ -4,22 +4,21 @@ var calculate = require('../js/calculate');
 var Calculator = React.createClass({
   render: function () {
     return (
-      <div>
-          <input type="text" defaultValue={this.state.a} onChange={this.handleChange} /><br />
-          + <input type="radio" />
-          - <input type="radio" /><br />
-          <input type="text" defaultValue={this.state.b} onChange={this.handleChange} /><br />
-          <b dangerouslySetInnerHTML={{__html: this.state.res}} />
-        </div>
+      <span>
+          <input type="text" ref="a" defaultValue={1} onChange={this.handleChange} style={{width:2+'em'}} />
+          <b>&nbsp;+&nbsp;</b>
+        <input type="text" ref="b" defaultValue={2} onChange={this.handleChange} style={{width:2+'em'}} />
+      <b>&nbsp;=&nbsp;</b><b dangerouslySetInnerHTML={{__html: this.state.result}} />
+      </span>
         )
       },
       // set the default values
       getInitialState: function(){
-        return {a: 1, b: 2, res: 3};
+        return {result: 3};
       },
       // execute change (handleChange is a custom method, called from the input)
-      handleChange: function(val){
-        this.setState({res: calculate.add(val.target.value,this.state.b)});
+      handleChange: function(evt){
+        this.setState({result: calculate.add(React.findDOMNode(this.refs.a).value,React.findDOMNode(this.refs.b).value)});
       }
     });
     // render the view

@@ -3,10 +3,10 @@ var React = require('react');
 var EnterText = React.createClass({
   render: function () {
     return (
-      <div>
+      <span>
           <input type="text" defaultValue={this.state.txt} onChange={this.handleChange} />
-          &nbsp;<i dangerouslySetInnerHTML={{__html: this.state.txt}} />
-        </div>
+          &nbsp;=&nbsp;<i dangerouslySetInnerHTML={{__html: this.state.txt}} />
+      </span>
         )
       },
       // execute change (handleChange is a custom method, called from the input)

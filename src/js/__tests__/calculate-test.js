@@ -7,7 +7,7 @@ describe('calculate sum', function() {
   });
   it('it should calculate the sum of 2+3=5', function() {
     var cal = require('../calculate');
-    expect(cal.add(2,3)).toBe(5);
+    expect(cal.add(20,31)).toBe(51);
   });
 });
 

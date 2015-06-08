@@ -7,7 +7,6 @@ app.use(express.static('public'));
 app.use(bodyParser.json()); // for parsing application/json
 
 app.post('/api', function(req, res) {
-  console.info(req.body);
   res.send({id: req.body.id, text:'This text is an AJAX call, with id: '+req.body.id});
 });
 
