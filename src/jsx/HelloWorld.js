@@ -17,8 +17,7 @@ var HelloWorld =  React.createClass({
     return {msg: 'empty'};
   },
   componentDidMount: function(){
-    dao.promise
-    .then(function(res){
+    dao.getText(99, function(res){
       this.setState({msg: res.data.text});
       // don't forget to bind!!!
     }.bind(this),
