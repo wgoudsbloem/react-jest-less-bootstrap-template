@@ -1,8 +1,4 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
+# What is this repository for? #
 
 * Template for setting up a React including Reactify testing with Jest and building with Gulp
 * 1.0
