@@ -8,6 +8,7 @@
 
 * Run: npm install
 * Build and run with a server including a watch: gulp
+* server runs on http://localhost:8080
 * Clean build if needed: gulp clean
 * Run test with: npm test
 
