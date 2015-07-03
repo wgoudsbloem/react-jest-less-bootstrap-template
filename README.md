@@ -14,7 +14,7 @@
 
 ### Contribution guidelines ###
 
-* Go and Fork Off!!
+* Not defined yet, just email me :)
 
 ### Who do I talk to? ###
 
